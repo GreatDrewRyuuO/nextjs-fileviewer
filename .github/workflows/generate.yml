@@ -1,0 +1,42 @@
+name: Next.js Test & Build
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run lint
+        run: pnpm lint
+
+      # - name: Run tests
+      #   run: pnpm test
+
+      # - name: Build Storybook static files
+      #   run: pnpm build-storybook
+
+      - name: Build Next.js app
+        run: pnpm build
