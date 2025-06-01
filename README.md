@@ -23,13 +23,3 @@ pnpm install
 ```bash
 pnpm storybook
 ```
-
-```bash
-pnpm install
-```
-
-## 🚀 Getting Started
-
-```bash
-pnpm storybook
-```
