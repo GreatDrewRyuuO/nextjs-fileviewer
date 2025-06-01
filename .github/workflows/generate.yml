@@ -32,8 +32,12 @@ jobs:
       - name: Run lint
         run: pnpm lint
 
+      # รัน unit test ถ้ามี
       # - name: Run tests
       #   run: pnpm test
+
+      - name: Build Storybook static files
+        run: pnpm build-storybook
 
       - name: Build Next.js app
         run: pnpm build
