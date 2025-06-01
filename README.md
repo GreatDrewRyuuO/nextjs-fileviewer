@@ -21,5 +21,4 @@ pnpm install
 
 ```bash
 pnpm storybook
-
 ```
