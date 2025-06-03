@@ -50,3 +50,7 @@ Easily switch between different file viewing libraries.
 Isolated component development and testing with Storybook.
 Modern and responsive UI with Tailwind CSS and shadcn/ui.
 Efficient data handling with TanStack Query for API interactions.
+
+## License
+
+[MIT](./LICENSE)
