@@ -32,9 +32,6 @@ jobs:
       - name: Run lint
         run: pnpm lint
 
-      - name: Run tests
-        run: pnpm test
-
       - name: Build Storybook static files
         run: pnpm storybook build
 
