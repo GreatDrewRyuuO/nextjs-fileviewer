@@ -32,11 +32,11 @@ jobs:
       - name: Run lint
         run: pnpm lint
 
-      # - name: Run tests
-      #   run: pnpm test
+      - name: Run tests
+        run: pnpm test
 
-      # - name: Build Storybook static files
-      #   run: pnpm build-storybook
+      - name: Build Storybook static files
+        run: pnpm storybook build
 
       - name: Build Next.js app
         run: pnpm build
