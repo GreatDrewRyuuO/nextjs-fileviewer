@@ -42,3 +42,4 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          flags: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && '--auto-accept-changes' || '' }}
