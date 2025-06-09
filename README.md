@@ -6,17 +6,19 @@ This project is a web-based playground built with **Next.js 15** and **Storybook
 
 ## 🧩 Tech Stack
 
--   **Next.js 15**: The React framework for building fast web applications.
--   **React**: A declarative, efficient, and flexible JavaScript library for building user interfaces.
--   **TypeScript**: A strongly typed superset of JavaScript that enhances code quality and maintainability.
--   **@monaco-editor/react**: Integrates the Monaco Editor for powerful code and text file rendering.
--   **react-spreadsheet**: Renders spreadsheet files (CSV, XLS, XLSX) directly in the browser.
--   **papaparse**: Provides robust CSV parsing capabilities, supporting `react-spreadsheet`.
--   **pdfjs-dist**: The industry-standard library for rendering PDF files.
--   **TanStack Query (React Query)**: For efficient data fetching, caching, and state management of API calls.
--   **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
--   **shadcn/ui**: A collection of reusable components built with Radix UI and Tailwind CSS, enhancing the UI styling and component library.
--   **Storybook**: An isolated development environment for UI components, facilitating testing and showcasing.
+- **Next.js 15** – The latest React framework for building high-performance web applications.
+- **React** – A declarative library for creating dynamic and interactive UIs.
+- **TypeScript** – Adds static typing to JavaScript for better maintainability.
+- **@monaco-editor/react** – Brings VS Code's powerful editor into the browser for code and text rendering.
+- **react-spreadsheet** – View and edit spreadsheet formats (CSV, XLS, XLSX) in-browser.
+- **papaparse** – Fast and reliable CSV parser used alongside `react-spreadsheet`.
+- **sheetJS** – Advanced spreadsheet parsing and exporting (supports Excel and CSV).
+- **pdfjs-dist** – Core PDF rendering engine used by modern PDF viewers.
+- **react-pdf** – A component-based PDF viewer built on top of `pdfjs-dist`.
+- **TanStack Query (React Query)** – Handles data fetching, caching, and background updates.
+- **Tailwind CSS** – A utility-first framework for building custom and responsive designs.
+- **shadcn/ui** – Accessible, themeable, and reusable UI components powered by Radix UI and Tailwind CSS.
+- **Storybook** – A powerful environment for developing and testing UI components in isolation.
 
 ---
 
@@ -39,17 +41,22 @@ pnpm storybook
 Once Storybook is running, open your browser and navigate to:
 
 ```bash
-localhost:6006
+[http://localhost:6006](http://localhost:6006)
 ```
 
 This will give you access to the file viewer components in an isolated environment, perfect for development and testing.
 
-## ✨ Features
-View various file types, including code, text, spreadsheets, and PDFs.
-Easily switch between different file viewing libraries.
-Isolated component development and testing with Storybook.
-Modern and responsive UI with Tailwind CSS and shadcn/ui.
-Efficient data handling with TanStack Query for API interactions.
+✨ Key Features
+
+🔍 Preview multiple file types – Code, text, spreadsheets (CSV/XLSX), and PDF files.
+
+🔄 Switch between libraries – Compare different rendering approaches in one interface.
+
+🧪 Isolated UI testing – Built-in Storybook support for modular development.
+
+🎨 Modern UI – Built with Tailwind CSS and shadcn/ui for a clean, responsive experience.
+
+⚡ Smart data handling – Uses TanStack Query for seamless API and state management.
 
 ## License
 
