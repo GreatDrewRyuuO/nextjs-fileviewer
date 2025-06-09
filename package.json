@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -87,6 +88,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/xlsx": "^0.0.36",
+    "chromatic": "^12.1.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "eslint-plugin-storybook": "9.0.3",

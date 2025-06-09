@@ -1,4 +1,4 @@
-name: Next.js Test & Build
+name: Next.js Test, Build & Publish to Chromatic
 
 on:
   push:
@@ -11,29 +11,34 @@ on:
       - dev
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "22.16.0"
+          node-version: "20.x"
 
       - name: Install pnpm
-        run: npm install -g pnpm
-
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
       - name: Install dependencies
         run: pnpm install
 
       - name: Run lint
         run: pnpm lint
 
-      - name: Build Storybook static files
-        run: pnpm build-storybook
-
       - name: Build Next.js app
         run: pnpm build
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
