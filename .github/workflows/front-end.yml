@@ -32,8 +32,8 @@ jobs:
       - name: Run lint
         run: pnpm lint
 
-      # - name: Build Storybook static files
-      #   run: pnpm storybook build
+      - name: Build Storybook static files
+        run: pnpm storybook-build
 
       - name: Build Next.js app
         run: pnpm build
