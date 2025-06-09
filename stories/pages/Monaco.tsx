@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Editor } from "@monaco-editor/react";
 import { useTheme } from "next-themes";
