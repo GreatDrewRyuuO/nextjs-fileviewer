@@ -1,36 +1,35 @@
+
 import type { StorybookConfig } from "@storybook/nextjs-vite";
-import path from 'path'; 
+import path from 'path';
 
 const config: StorybookConfig = {
-  "stories": [
+  stories: [
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
     "@storybook/addon-docs",
     "@storybook/addon-a11y",
   ],
-  "framework": {
-    "name": "@storybook/nextjs-vite",
-    "options": {}
+  framework: {
+    name: "@storybook/nextjs-vite",
+    options: {}
   },
-  "staticDirs": [
-    "../public"
-  ],
+  
+
+staticDirs: ["../public"],
 
   async viteFinal(config, { configType }) {
-
     const projectRoot = path.resolve(__dirname, '../');
-
     return {
-      ...config, 
+      ...config,
       resolve: {
-        ...config.resolve, 
+        ...config.resolve,
         alias: {
-          ...config.resolve?.alias, 
-          '@': projectRoot, 
+          ...config.resolve?.alias,
+          '@': projectRoot,
         },
       },
     };
