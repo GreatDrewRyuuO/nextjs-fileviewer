@@ -38,8 +38,8 @@ jobs:
       - name: Build Next.js app
         run: pnpm build
 
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          flags: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && '--auto-accept-changes' || '' }}
+      # - name: Publish to Chromatic
+      #   uses: chromaui/action@v1
+      #   with:
+      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      #     flags: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && '--auto-accept-changes' || '' }}
