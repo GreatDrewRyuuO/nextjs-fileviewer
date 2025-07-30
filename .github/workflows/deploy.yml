@@ -1,0 +1,59 @@
+name: Deploy Next.js to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          script: |
+            export APP_DIR="/home/ubuntu/my-nextjs-app"
+            mkdir -p $APP_DIR
+
+            cd $APP_DIR
+
+            pm2 stop my-nextjs-app || true
+            pm2 delete my-nextjs-app || true
+
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@v1.0.1
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          source: ".next, node_modules, package.json, public"
+          target: "/home/ubuntu/my-nextjs-app"
+          strip_components: 1
+
+      - name: Restart application on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/my-nextjs-app
+            pm2 start npm --name "my-nextjs-app" -- start
