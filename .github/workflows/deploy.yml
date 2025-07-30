@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' 
+          node-version: '20'
 
       - name: Install dependencies and build
         run: |
@@ -32,7 +32,6 @@ jobs:
           script: |
             export APP_DIR="/home/ubuntu/my-nextjs-app"
             mkdir -p $APP_DIR
-
             pm2 stop my-nextjs-app || true
             pm2 delete my-nextjs-app || true
 
@@ -44,7 +43,6 @@ jobs:
           key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
           source: ".next, node_modules, package.json, public"
           target: "/home/ubuntu/my-nextjs-app"
-          strip_components: 1
 
       - name: Restart application on EC2
         uses: appleboy/ssh-action@master
@@ -54,5 +52,4 @@ jobs:
           key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/my-nextjs-app
-
             pm2 start npm --name "my-nextjs-app" -- start
