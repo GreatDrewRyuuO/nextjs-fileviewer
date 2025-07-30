@@ -26,7 +26,7 @@ jobs:
       - name: Prepare directory on EC2
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.AW_HOST }}
+          host: ${{ secrets.AWฆ_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
           script: |
